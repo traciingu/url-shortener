@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
             console.error(err);
         }
     } else {
-        res.status(200).send("Shortlink already exists");
+        res.status(409).send("Shortlink already exists");
     }
 });
 
