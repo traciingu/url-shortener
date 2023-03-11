@@ -32,7 +32,11 @@ router.post('/', async (req, res) => {
             shortlink = crypto.createHash('md5').update(url).digest('hex').slice(0, 10);
         }
 
+        try {
         res.status(201).json(await new Shortlinks({ url, shortlink }).save());
+        } catch (err) {
+            console.error(err);
+        }
     } else {
         res.status(200).send("Shortlink already exists");
     }
