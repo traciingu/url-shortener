@@ -8,7 +8,7 @@ require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URI);
 
-const PORT = 80;
+const PORT = 8080;
 app.use(express.json());
 app.use(cors());
 
